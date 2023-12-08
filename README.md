@@ -1,3 +1,3 @@
 # TodoPERN
-Hi! This is my todo list application \n
+Hi! This is my todo list application;
 Password is 123
