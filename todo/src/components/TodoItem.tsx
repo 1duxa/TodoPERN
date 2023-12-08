@@ -3,7 +3,6 @@ import { Todo } from "../App";
 import updateTodoRequest from "../api/updateTodoRequest";
 import deleteTodoRequest from "../api/deleteTodoRequest";
 
-
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -26,7 +25,6 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
     }
   );
 
-  
   const handleCheckboxChange = () => {
     updateTodo({ ...todo, todo_completed: !todo.todo_completed });
   };
@@ -54,13 +52,9 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
           checked={todo.todo_completed}
         />
       </div>
-      <div>
+      <div className="flex-1">
         <Accordion>
-          <AccordionSummary
-            expandIcon={<Edit />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
+          <AccordionSummary expandIcon={<Edit />}>
             <p className="text-[20px]">
               {`${todo.todo_id}.`}{" "}
               <span className="ml-3 max-w-[300px]">{todo.todo_desc}</span>
@@ -90,11 +84,10 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
             </form>
           </AccordionDetails>
         </Accordion>
-      
-      </div>  
+      </div>
       <div className="ml-3 cursor-pointer">
-          <Delete onClick={() => deleteTodo(todo)} />
-        </div>
+        <Delete onClick={() => deleteTodo(todo)} />
+      </div>
     </div>
   );
 };
